@@ -1,2 +1,4 @@
 # Tgg-Api
-Api DDD + UOF + REPOSITORY 
+Api utilizando DDD + UOF + REPOSITORY PATTERN + JWT
+
+
