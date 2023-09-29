@@ -1,0 +1,66 @@
+﻿@model PedidosViewModel
+
+<h2> Criar Novo Pedido </h2>
+
+<form asp-action="NovoPedido">
+    <div class="form-horizontal">
+        <hr />
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="pedidoId" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="pedidoId" class="form-control" />
+                <span asp-validation-for="pedidoId" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="NomeComprador" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="NomeComprador" class="form-control" />
+                <span asp-validation-for="NomeComprador" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="PrecoTotal" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="PrecoTotal" class="form-control" />
+                <span asp-validation-for="PrecoTotal" class="text-danger"></span>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label asp-for="Telefone" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Telefone" class="form-control" />
+                <span asp-validation-for="Telefone" class="text-danger"></span>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label asp-for="ProdutoId" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="ProdutoId" class="form-control" />
+                <span asp-validation-for="ProdutoId" class="text-danger"></span>
+            </div>
+        </div>
+
+
+        <div class="form-group" style="padding-top: 10px">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Criar" class="btn btn-success" />
+                <a asp-action="Index" class="btn btn-info">Retornar</a>
+            </div>
+        </div>
+
+    </div>
+    @if (@ViewBag.Erro != null)
+    {
+        <div style="color:red">
+            <h4>@ViewBag.Erro</h4>
+        </div>
+    }
+</form>

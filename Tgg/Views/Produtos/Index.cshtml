@@ -1,0 +1,59 @@
+﻿@model IEnumerable<ProdutoViewModel>
+
+<h2>Pedidos</h2>
+
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <div>
+            <div class="pull-left">
+                <a asp-action="NovoProduto" class="btn btn-primary">
+                    <span title="Criar Produto" class="fas fa-plus"></span> Novo Produto
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<div class="panel panel-default">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProdutoId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Preco)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NomeProduto)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProdutoId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Preco)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NomeProduto)
+                    </td>
+                    <td>
+                        <a asp-action="AtualizarProduto" asp-route-id="@item.ProdutoId" title="Editar" class="btn btn-warning">
+                            <span class="fas fa-edit"></span>
+                        </a>
+                        <a asp-action="DeletarProduto" asp-route-id="@item.ProdutoId" title="Deletar" class="btn btn-danger">
+                            <span class="fas fa-trash-alt"></span>
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

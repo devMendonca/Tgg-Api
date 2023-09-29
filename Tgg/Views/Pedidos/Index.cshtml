@@ -1,0 +1,71 @@
+﻿@model IEnumerable<PedidosViewModel>
+
+<h2>Pedidos</h2>
+
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <div>
+            <div class="pull-left">
+                <a asp-action="NovoPedido" class="btn btn-primary">
+                    <span title="Criar Pedido" class="fas fa-plus"></span> Novo Pedido
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<div class="panel panel-default">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.pedidoId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NomeComprador)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PrecoTotal)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Telefone)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProdutoId)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.pedidoId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NomeComprador)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PrecoTotal)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Telefone)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProdutoId)
+                    </td>
+                    <td>
+                        <a asp-action="AtualizarPedido" asp-route-id="@item.pedidoId" title="Editar" class="btn btn-warning">
+                            <span class="fas fa-edit"></span>
+                        </a>
+                        <a asp-action="DeletarPedido" asp-route-id="@item.pedidoId" title="Deletar" class="btn btn-danger">
+                            <span class="fas fa-trash-alt"></span>
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
